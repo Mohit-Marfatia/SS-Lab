@@ -4,21 +4,28 @@ Reg. No.: MT2024090
 Problem: Write a program to copy file1 into file2 ($cp file1 file2).
 */
 #include<stdio.h>
+#include<stdlib.h>
 #include<fcntl.h>
 
-int main(){
-	int source_file = open("./6.c", O_RDONLY);
-	printf("source fd: %d", source_file);
+int main(int argc, char *argv[]){
+	int source_file = open(argv[1], O_RDONLY);
 	perror("Read from source file: ");
-	int dest_file = open("./6_copy.txt", O_CREAT | O_RDWR, 0644);
+	if(source_file < 0){
+		exit(0);
+	}
+	int dest_file = open(argv[2], O_CREAT | O_RDWR, 0600);
 
-	int buffer_size = 2048;
-	char buffer[buffer_size];
+	//int buffer_size = 1024;
+	char buffer[1024];
 
-	ssize_t bytes_read, bytes_written;
-	bytes_read = read(source_file, buffer, buffer_size);
-	perror("Bytes read from source file: ");
-	bytes_written = write(dest_file, buffer, bytes_read);
-	perror("Bytes written from source file: ");
+	int bytes_read, bytes_written;
+	while((bytes_read = read(source_file, buffer, sizeof(buffer))) > 0) {
+		write(dest_file, buffer, bytes_read);
+}
+	//perror("Bytes read from source file: ");
+	
+	//perror("Bytes written from source file: ");
+	close(source_file);
+	close(dest_file);
 
 }
