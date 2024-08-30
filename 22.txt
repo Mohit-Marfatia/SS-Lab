@@ -1,0 +1,5 @@
+Start of file
+Parent process writing.
+Child process writing.
+End of file
+End of file

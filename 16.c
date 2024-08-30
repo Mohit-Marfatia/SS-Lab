@@ -3,7 +3,7 @@
 ==================================================
 
 Name: Mohit Marfatia
-Reg, No: MT2024090
+Reyg, No: MT2024090
 Problem: Write a program to perform mandatory locking.
 a. Implement write lock
 
@@ -71,4 +71,4 @@ Waiting to implement write lock
 Implementing write lock...
  Press enter to unlock and come out of critical section!
 
-/*
+*/
