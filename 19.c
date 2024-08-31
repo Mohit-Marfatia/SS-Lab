@@ -1,3 +1,15 @@
+/*
+============================================================================
+
+Name : 19.c
+Author: Mohit Marfatia
+Problem: Write a program to find out time taken to execute getpid system call. Use time stamp counter.
+Date: 31st Aug, 2024.
+============================================================================
+*/
+
+
+
 #include<stdio.h>
 #include<unistd.h>
 #include<sys/time.h>
@@ -17,3 +29,9 @@ int main(void){
     printf("The function takes %d nano sec \n", nano);
     return 0;
 }
+
+/*
+Output:
+The function takes 3264 nano sec 
+
+*/

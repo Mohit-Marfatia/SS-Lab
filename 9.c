@@ -1,7 +1,8 @@
 /*
-Name: Mohit Marfatia
-Reg. No.: MT2024090
-Problem: Write a program to print the following information about a given file.
+============================================================================
+Name : 9.c
+Author : Mohit Marfatia
+Description : Write a program to print the following information about a given file.
 a. inode
 b. number of hard links
 c. uid
@@ -12,6 +13,8 @@ g. number of blocks
 h. time of last access
 i. time of last modification
 j. time of last change
+Date: 18th Aug, 2024.
+============================================================================
 */
 
 #include <stdio.h>
@@ -41,3 +44,18 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
+
+/*
+Output:
+inode: 6031851
+number of hard links: 2
+uid: 1000
+gid: 1000
+size: 539 bytes
+block size: 4096 bytes
+number of blocks: 8
+time of last access: Sat Aug 31 17:14:31 2024
+time of last modification: Sat Aug 31 17:14:31 2024
+time of last change: Sat Aug 31 17:14:31 2024
+
+*/

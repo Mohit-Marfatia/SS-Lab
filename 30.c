@@ -1,4 +1,11 @@
 /*
+============================================================================
+
+Name : 30.c
+Author: Mohit Marfatia
+Problem: Write a program to run a script at a specific time using a Daemon process.
+Date: 31st Aug, 2024.
+============================================================================
 */
 
 #include<unistd.h>

@@ -1,3 +1,15 @@
+/*
+============================================================================
+
+Name : 27a.c
+Author: Mohit Marfatia
+Problem: Write a program to execute ls -Rl by the following system calls
+a. execl
+Date: 31st Aug, 2024.
+============================================================================
+*/
+
+
 #include<unistd.h>
 #include<stdio.h>
 #include<stdlib.h>

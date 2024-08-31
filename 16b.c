@@ -1,3 +1,15 @@
+/*
+============================================================================
+
+Name : 16b.c
+Author: Mohit Marfatia
+Problem: Write a program to perform mandatory locking.
+b. Implement read lock
+Date: 29th Aug, 2024.
+============================================================================
+*/
+
+
 #include<stdio.h>
 #include<fcntl.h>
 
@@ -33,3 +45,33 @@ int main(){
 	close(fd);
 	return 0;
 }
+
+/*
+Output:
+Read-Read 
+Terminal 1:
+Waiting to implement read lock...
+Implementing Read Lock...
+ Press enter to unlock and come out of critical section!
+
+Successfully read and out of critical section!
+
+Terminal 2:
+Waiting to implement read lock...
+Implementing Read Lock...
+ Press enter to unlock and come out of critical section!
+
+
+Write-Read
+Terminal 1:
+Waiting to implement write lock
+Implementing write lock...
+ Press enter to unlock and come out of critical section!
+
+Terminal 2:
+Waiting to implement write lock
+Implementing write lock...
+ Press enter to unlock and come out of critical section!
+Waiting to implement read lock...
+
+*/

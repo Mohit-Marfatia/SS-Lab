@@ -1,7 +1,10 @@
 /*
-Name: Mohit Marfatia
-Reg. No.: MT2024090
-Problem: Write a program to find out the opening mode of a file. Use fcntl.
+============================================================================
+Name : 12.c
+Author : Mohit Marfatia
+Description : Write a program to find out the opening mode of a file. Use fcntl.
+Date: 21st Aug, 2024.
+============================================================================
 */
 
 #include<fcntl.h>
@@ -26,3 +29,11 @@ int main(){
 
 	close(fd);
 }
+
+/*
+Output:
+flags: 33794, O_ACCMODE: 3, accessMode: 2
+File access mode: Read and Write
+File is opened in append mode.
+
+*/

@@ -1,3 +1,14 @@
+/*
+============================================================================
+
+Name : 29.c
+Author: Mohit Marfatia
+Problem: Write a program to get scheduling policy and modify the scheduling policy (SCHED_FIFO,
+SCHED_RR).
+Date: 31st Aug, 2024.
+============================================================================
+*/
+
 #include <stdio.h>
 #include <sched.h>
 #include <stdlib.h>

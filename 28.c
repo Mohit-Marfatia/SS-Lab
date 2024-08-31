@@ -1,3 +1,13 @@
+/*
+============================================================================
+
+Name : 28.c
+Author: Mohit Marfatia
+Problem: Write a program to get maximum and minimum real time priority.
+Date: 31st Aug, 2024.
+============================================================================
+*/
+
 #include <stdio.h>
 #include <sched.h>
 

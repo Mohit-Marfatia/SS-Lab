@@ -1,3 +1,15 @@
+/*
+============================================================================
+
+Name : 25.c
+Author: Mohit Marfatia
+Problem: Write a program to create three child processes. The parent should wait for a particular child (use
+waitpid system call).
+Date: 31st Aug, 2024.
+============================================================================
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

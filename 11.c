@@ -1,11 +1,14 @@
 /*
-Name: Mohit Marfatia
-Reg No.: MT2024090
-Problem: Write a program to open a file, duplicate the file descriptor and append the file with both the
+============================================================================
+Name : 11.c
+Author : Mohit Marfatia
+Description : Write a program to open a file, duplicate the file descriptor and append the file with both the
 descriptors and check whether the file is updated properly or not.
 a. use dup
 b. use dup2
 c. use fcntl
+Date: 20th Aug, 2024.
+============================================================================
 */
 
 #include<stdio.h>
@@ -34,3 +37,11 @@ int main(){
 	close(fd2);
 	close(fd_fcntl);
 }
+
+/*
+Output:
+fd1: 3, fd_dup: 4
+fd2: 3, fd_dup2: 87
+fd2: 3, fd_fcntl: 0
+
+*/

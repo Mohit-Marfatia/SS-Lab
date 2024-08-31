@@ -1,3 +1,14 @@
+/*
+============================================================================
+
+Name : 20.c
+Author: Mohit Marfatia
+Problem: Find out the priority of your running program. Modify the priority with nice command.
+Date: 30th Aug, 2024.
+============================================================================
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

@@ -1,3 +1,14 @@
+/*
+============================================================================
+
+Name : 24.c
+Author: Mohit Marfatia
+Problem: Write a program to create an orphan process.
+Date: 31st Aug, 2024.
+============================================================================
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

@@ -1,7 +1,10 @@
 /*
-Name: Mohit Marfatia
-Reg No.: MT2024090
-Problem: Write a program to take input from STDIN and display on STDOUT. Use only read/write system calls
+============================================================================
+Name : 6.c
+Author : Mohit Marfatia
+Description :Write a program to take input from STDIN and display on STDOUT. Use only read/write system calls
+Date: 13th Aug, 2024.
+============================================================================
 */
 
 #include <unistd.h>
@@ -17,3 +20,14 @@ int main(void) {
         write(1, buffer, bytes_read);
         perror("Write:");
 }
+
+/*
+Output:
+-rw-r--r-- 1 mohit-marfatia mohit-marfatia    555 Aug 22 09:14  6_copy.txt
+
+Hello
+Read:: Success
+Hello
+Write:: Success
+6
+*/
