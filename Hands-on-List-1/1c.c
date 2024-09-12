@@ -8,9 +8,12 @@ Date: 8th Aug, 2024.
 ============================================================================
 */
 
-#include<fcntl.h>
+//#include<fcntl.h>
+#include<sys/stat.h>
+
 int main() {
-	mknod("./1c_fifo", S_IFIFO | 0744, 0);
+	//mknod("./1c_fifo", S_IFIFO | 0744, 0);
+	mkfifo("./1c_fifo2", 0744);
 }
 
 /*

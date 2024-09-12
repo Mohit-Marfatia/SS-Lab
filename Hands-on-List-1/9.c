@@ -26,9 +26,9 @@ int main(int argc, char *argv[]) {
 
 	struct stat fileStats;
 	if (stat(argv[1], &fileStats) == -1) {
-               perror("stat");
-               exit(EXIT_FAILURE);
-           }
+        perror("stat");
+        exit(EXIT_FAILURE);
+    }
 
 
 	printf("inode: %ld\n", fileStats.st_ino);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 	printf("gid: %d\n", fileStats.st_gid);
 	printf("size: %ld bytes\n", fileStats.st_size);
 	printf("block size: %ld bytes\n", fileStats.st_blksize);
-	printf("number of blocks: %ld\n", fileStats.st_blocks);;
+	printf("number of blocks: %ld\n", fileStats.st_blocks);
 	printf("time of last access: %s", ctime(&fileStats.st_atime));
 	printf("time of last modification: %s", ctime(&fileStats.st_mtime));
 	printf("time of last change: %s", ctime(&fileStats.st_ctime));

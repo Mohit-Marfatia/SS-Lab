@@ -17,12 +17,12 @@ Date: 18th Aug, 2024.
 
 int main(){
 	int fd = creat("10.txt", O_RDWR);
-	char temp[10] = "0123456789";
+	char temp[10] = "012345";
 	printf("Writing %s to 10.text\n", temp);
 	write(fd, temp, 10);
-	off_t offset = lseek(fd, 10, SEEK_CUR); 
+	off_t offset = lseek(fd, 10, SEEK_SET); 
 	printf("File cursor at %ld\n", offset);
-	char temp2[10] = "9876543210";
+	char temp2[10] = "543210";
 	printf("Writing %s to 10.text\n", temp2);
 	write(fd, temp2, 10);
 	close(fd);
@@ -35,10 +35,11 @@ Writing 0123456789 to 10.text
 File cursor at 20
 Writing 9876543210 to 10.text
 (base) mohit-marfatia@mohit-marfatia:~/College/Software-Systems/exercise$ cat 10.txt 
-01234567899876543210
-(base) mohit-marfatia@mohit-marfatia:~/College/Software-Systems/exercise$ od -i 10.txt
-0000000   858927408   926299444       14648           0
-0000020           0   909588537   842216501       12337
-0000036
+012345543210
+(base) mohit-marfatia@mohit-marfatia:~/College/Software-Systems/exercise$ od -c 10.txt
+0000000   0   1   2   3   4   5  \0  \0  \0  \0   5   4   3   2   1   0
+0000020  \0  \0  \0  \0
+0000024
+
 
 */

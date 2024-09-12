@@ -12,11 +12,11 @@ Date: 13th Aug, 2024.
 
 int main(void) {
 	int buffer_size = 80;
-	ssize_t bytes_read, bytes_written;
+	int bytes_read, bytes_written;
 	char buffer[buffer_size];
         bytes_read = read(0, buffer, buffer_size);
         perror("Read:");
-	printf("%ld", bytes_read); //will wait till whole program is executed. To prevent this use fflush(stdout) or use \n
+	printf("%d", bytes_read); //will wait till whole program is executed. To prevent this use fflush(stdout) or use \n
         write(1, buffer, bytes_read);
         perror("Write:");
 }

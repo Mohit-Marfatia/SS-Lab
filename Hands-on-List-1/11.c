@@ -30,7 +30,7 @@ int main(){
 	close(fd2);
 	close(fd_dup2);
 	int fd3 = open("temp_fcntl.txt", O_CREAT | O_RDWR, 0777);
-	int fd_fcntl = dup2(fd3, F_DUPFD, 0);
+	int fd_fcntl = fcntl(fd3, F_DUPFD, 0);
 	write(fd2, "written using fd2\n", 20);
 	write(fd_dup2, "written using fd_fcntl\n", 20);
 	printf("fd2: %d, fd_fcntl: %d\n", fd2, fd_fcntl);

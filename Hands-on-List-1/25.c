@@ -34,7 +34,7 @@ int main() {
         perror("Fork failed for child 2");
     } else if (pid2 == 0) {
         printf("Child 2 PID: %d is running...\n", getpid());
-        sleep(3);
+        sleep(5);
         printf("Child 2 PID: %d is exiting.\n", getpid());
         exit(0);
     }
@@ -44,7 +44,7 @@ int main() {
         perror("Fork failed for child 3");
     } else if (pid3 == 0) {
         printf("Child 3 PID: %d is running...\n", getpid());
-        sleep(5);
+        sleep(9);
         printf("Child 3 PID: %d is exiting.\n", getpid());
         exit(0);
     }
