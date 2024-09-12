@@ -3,7 +3,7 @@
 Name : 1a.c
 Author : Mohit Marfatia
 Description : Write a separate program (for each time domain) to set a interval timer in 10sec and 10 micro second
-a. ITIMER_REAL
+b. ITIMER_VIRTUAL
 Date: 12th Sept, 2024.
 ============================================================================
 */
@@ -26,9 +26,9 @@ int main(void) {
     timer.it_interval.tv_sec = 10;
     timer.it_interval.tv_usec = 10;
 
-    int setITimer = setitimer(ITIMER_REAL, &timer, NULL);
+    int setITimer = setitimer(ITIMER_VIRTUAL, &timer, NULL);
     if(setITimer == -1){
-        perror("Set ITIMER_REAL:");
+        perror("Set ITIMER_VIRTUAL:");
     }
 
     while(1);
@@ -37,10 +37,6 @@ int main(void) {
 
 /*
 Output:
-Timer has expired.
-Timer has expired.
-Timer has expired.
-Timer has expired.
-^C
+Virtual timer expired
 
 */
