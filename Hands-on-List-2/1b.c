@@ -21,10 +21,10 @@ int main(void) {
 	signal(SIGALRM, timerHandler);
 
     timer.it_value.tv_sec = 10;
-    timer.it_value.tv_usec = 10;
+    timer.it_value.tv_usec = 0;
 
     timer.it_interval.tv_sec = 10;
-    timer.it_interval.tv_usec = 10;
+    timer.it_interval.tv_usec = 0;
 
     int setITimer = setitimer(ITIMER_VIRTUAL, &timer, NULL);
     if(setITimer == -1){
