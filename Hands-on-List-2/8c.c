@@ -25,7 +25,6 @@ void sigfpe_handler(int signo) {
 int main() {
     signal(SIGFPE, sigfpe_handler);
 
-    // feenableexcept(FE_DIVBYZERO | FE_INVALID | FE_OVERFLOW);
     printf("Triggering SIGFPE...\n");
 
     int a = 1;
