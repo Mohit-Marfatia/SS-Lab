@@ -17,6 +17,7 @@ Date: 17th Sept, 2024.
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
+#include <fcntl.h>
 
 int main() {
     pid_t pid = fork();

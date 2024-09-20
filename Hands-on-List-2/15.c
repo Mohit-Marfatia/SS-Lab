@@ -12,6 +12,7 @@ Date: 18th Sept, 2024.
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
 
 int main() {
     int pipefds[2];
