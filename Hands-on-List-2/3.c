@@ -8,74 +8,41 @@ Date: 12th Sept, 2024.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <unistd.h>
-#include <errno.h>
-#include <string.h>
 
-void print_nice_limit() {
+void set_cpu_time_limit(int seconds) {
     struct rlimit limit;
     
-    if (getrlimit(RLIMIT_NICE, &limit) == 0) {
-        printf("Current RLIMIT_NICE limits: Soft limit: %ld | Hard limit: %ld\n", 
-               (long)limit.rlim_cur, (long)limit.rlim_max);
-    } else {
-        perror("getrlimit");
+    limit.rlim_cur = seconds;  // Soft limit
+    limit.rlim_max = seconds;  // Hard limit
+    
+    if (setrlimit(RLIMIT_CPU, &limit) == -1) {
+        perror("Error setting CPU time limit");
+        exit(1);
     }
+    printf("CPU time limit set to %d seconds\n", seconds);
 }
 
 int main() {
-    struct rlimit new_limit;
+    set_cpu_time_limit(10);
     
-    printf("Before setting new RLIMIT_NICE limit:\n");
-    print_nice_limit();
-    
-    new_limit.rlim_cur = 10;
-    new_limit.rlim_max = 10; 
-    
-    if (setrlimit(RLIMIT_NICE, &new_limit) != 0) {
-        perror("setrlimit");
-        return 1;
-    }
-    
-    printf("After setting new RLIMIT_NICE limit:\n");
-    print_nice_limit();
-
-    int current_nice = getpriority(PRIO_PROCESS, 0);
-    if (current_nice == -1 && errno != 0) {
-        perror("getpriority");
-        return 1;
-    }
-    
-    printf("Current process nice value: %d\n", current_nice);
-
-    printf("Attempting to change nice value by 6...\n");
-    int result = nice(6);
-    
-    if (result == -1 && errno != 0) {
-        printf("Error changing nice value: %s\n", strerror(errno));
-    } else {
-        printf("Nice value changed successfully. New nice value: %d\n", getpriority(PRIO_PROCESS, 0));
+    printf("Process is running... (it will be terminated after 10 seconds)\n");
+    while (1) {
+        for (long i = 0; i < 1000000000; i++) {
+            // Busy loop to consume CPU time
+        }
     }
 
-    current_nice = getpriority(PRIO_PROCESS, 0);
-    if (current_nice == -1 && errno != 0) {
-        perror("getpriority");
-        return 1;
-    }
-    
-    printf("Current process nice value: %d\n", current_nice);
-
-    printf("Attempting to change nice value by 5...\n");
-     result = nice(5);
-    
-    if (result == -1 && errno != 0) {
-        printf("Error changing nice value: %s\n", strerror(errno));
-    } else {
-        printf("Nice value changed successfully. New nice value: %d\n", getpriority(PRIO_PROCESS, 0));
-    }
-    
     return 0;
 }
 
+/*
+Output:
+CPU time limit set to 10 seconds
+Process is running... (it will be terminated after 10 seconds)
+Killed
+
+*/
