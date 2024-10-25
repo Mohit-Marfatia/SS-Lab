@@ -29,21 +29,19 @@ int main() {
     }
 
     if (pid == 0) {
-        close(pipefds[1]); // Close the write end of the pipe
-        close(0); // Close the stdin
+        close(pipefds[1]); 
+        close(0);
 
-        // Duplicate the pipe's read end to stdin using dup()
-        dup(pipefds[0]); // dup() duplicates the pipe's read end to the lowest-numbered file descriptor, which is stdin (0)
+        dup(pipefds[0]);
 
         execlp("wc", "wc", NULL);
         perror("execlp failed");
         exit(1);
     } else {
-        close(pipefds[0]); // Close the read end of the pipe
-        close(1); // Close the stdout
+        close(pipefds[0]);
+        close(1); 
 
-        // Duplicate the pipe's write end to stdout using dup()
-        dup(pipefds[1]); // dup() duplicates the pipe's write end to stdout (1)
+        dup(pipefds[1]);
 
         execlp("ls", "ls", "-l", NULL);
         perror("execlp failed");

@@ -11,21 +11,35 @@ Date: 18th Aug, 2024.
 */
 
 
-#include<fcntl.h>
-#include<unistd.h>
-#include<stdio.h>
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 int main(){
 	int fd = creat("10.txt", O_RDWR);
-	char temp[10] = "012345";
+	char temp[5] = "12345";
 	printf("Writing %s to 10.text\n", temp);
-	write(fd, temp, 10);
+	write(fd, temp, 5);
 	off_t offset = lseek(fd, 10, SEEK_SET); 
 	printf("File cursor at %ld\n", offset);
-	char temp2[10] = "543210";
+	char temp2[5] = "54321";
 	printf("Writing %s to 10.text\n", temp2);
-	write(fd, temp2, 10);
+	write(fd, temp2, 5);
 	close(fd);
+
+	// int fd = creat("10_2.txt", 0666);
+	 fd = open("10.txt", O_RDONLY);
+	// int write_val = 0x22;
+	// off_t offset = lseek(fd, 10, SEEK_SET);
+	// write(fd, &write_val, sizeof(write_val));
+	off_t offset2 = lseek(fd, 7, SEEK_DATA);
+
+	printf("seek_data:%ld\n", offset2);
 }
 
 /*

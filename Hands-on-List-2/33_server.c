@@ -20,7 +20,7 @@ int main() {
     struct sockaddr_in server, client;   
     int sd, sz, nsd;
     char buffer[100];
-    sd = socket(AF_UNIX, SOCK_STREAM, 0);
+    sd = socket(AF_INET, SOCK_STREAM, 0);
 
     server.sin_family = AF_UNIX;
     server.sin_addr.s_addr = INADDR_ANY;

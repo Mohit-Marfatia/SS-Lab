@@ -13,7 +13,7 @@ Date: 12th Sept, 2024.
 #include<signal.h>
 
 void timerHandler(){
-    printf("Timer has expired.\n");
+    printf("Virtual timer expired.\n");
 }
 
 int main(void) {

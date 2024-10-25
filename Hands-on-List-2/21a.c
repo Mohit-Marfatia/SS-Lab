@@ -13,25 +13,50 @@ Date: 18th Sept, 2024.
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-int main()
-{
-    int fd1, fd2;
-    char buff_r[100], buff_w[100];
-    mkfifo("21_fifo1", 0666);
-    mkfifo("21_fifo2", 0666);
-    fd1 = open("21_fifo1", O_RDWR);
-    fd2 = open("21_fifo2", O_RDWR);
-    if (fd2 == -1 || fd1 == -1) {
-        printf("There is some error..\n");
+#include <string.h>
+
+
+int main() {
+    char message[100];
+    char received[100];
+    int fd;
+
+    mkfifo("myfifo", 0666);
+
+    while (1) {
+        fd = open("myfifo" ,O_WRONLY);
+        if (fd == -1) {
+            perror("Error opening FIFO for writing");
+            return 1;
+        }
+
+        printf("21 a taking message: ");
+        fgets(message, sizeof(message), stdin);
+        write(fd, message, strlen(message) + 1);  
+        close(fd);  
+
+      
+        fd = open("myfifo", O_RDONLY);
+        if (fd == -1) {
+            perror("Error opening FIFO for reading");
+            return 1;
+        }
+
+        read(fd, received, sizeof(received));  // Read message from FIFO
+        printf("Received from Program 21b: %s\n", received);
+        close(fd);  // Close after reading
     }
-    while (1){
-        printf("Enter the message..\n");
-        fgets(buff_w, sizeof(buff_w), stdin);
-        write(fd1, buff_w, sizeof(buff_w));
-        read(fd2, buff_r, sizeof(buff_r));
-        printf("Message from the FIFO is... %s", buff_r);
-    }
+
     return 0;
 }
+/*
+Output: 
+21 a taking message: hi
+Received from Program 21b: hello
+
+21 a taking message: bye from a
+Received from Program 21b: bye from b
+
+
+
+*/

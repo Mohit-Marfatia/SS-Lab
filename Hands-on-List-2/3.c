@@ -16,8 +16,8 @@ Date: 12th Sept, 2024.
 void set_cpu_time_limit(int seconds) {
     struct rlimit limit;
     
-    limit.rlim_cur = seconds;  // Soft limit
-    limit.rlim_max = seconds;  // Hard limit
+    limit.rlim_cur = seconds; 
+    limit.rlim_max = seconds; 
     
     if (setrlimit(RLIMIT_CPU, &limit) == -1) {
         perror("Error setting CPU time limit");
@@ -32,7 +32,7 @@ int main() {
     printf("Process is running... (it will be terminated after 10 seconds)\n");
     while (1) {
         for (long i = 0; i < 1000000000; i++) {
-            // Busy loop to consume CPU time
+           
         }
     }
 

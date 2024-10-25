@@ -40,8 +40,8 @@ int main() {
     }
 
     if (pid > 0) {
-        close(pipe_p_to_c[0]); // Close read end of parent to child pipe
-        close(pipe_c_to_p[1]); // Close write end of child to parent pipe
+        close(pipe_p_to_c[0]); 
+        close(pipe_c_to_p[1]);
 
         printf("Enter message:\n");
         scanf("%[^\n]s", parent_msg);
@@ -55,8 +55,8 @@ int main() {
         close(pipe_c_to_p[0]);
 
     } else {
-        close(pipe_p_to_c[1]); // Close write end of parent to child pipe
-        close(pipe_c_to_p[0]); // Close read end of child to parent pipe
+        close(pipe_p_to_c[1]);
+        close(pipe_c_to_p[0]);
 
         read(pipe_p_to_c[0], read_buffer, sizeof(read_buffer));
         printf("Child: Received message from parent: \"%s\"\n", read_buffer);

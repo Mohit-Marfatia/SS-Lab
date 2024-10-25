@@ -10,13 +10,14 @@ Date: 13th Aug, 2024.
 
 #include<stdio.h>
 #include<fcntl.h>
+#include<unistd.h>
 
 int main(){
 	int source_file = open("./7.c", O_RDONLY);
 	perror("Read from source file: ");
 
-	int buffer_size = 2048;
-	char buffer[buffer_size];
+	int buffer_size = 1;
+	char buffer[1];
 
 	while(read(source_file, buffer, 1)){
 		if(buffer[0]=='\n') getchar();

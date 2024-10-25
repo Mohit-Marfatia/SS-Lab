@@ -15,7 +15,7 @@ Date: 31st Aug, 2024.
 #include<stdlib.h>
 
 int main() {
-    execl("/bin/ls", "ls", "-R","-l", NULL);
+    execl("/bin/ls", "ls", "-R","-l","-i", NULL);
     printf("There is some error...\n");
     return 0;
 }

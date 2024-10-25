@@ -40,7 +40,7 @@ int main() {
     }
 
     server.sin_family = AF_INET;
-    server.sin_port = htons(5308);
+    server.sin_port = htons(5309);
     server.sin_addr.s_addr = INADDR_ANY;
 
     bind(serverSD, (void *)&server, sizeof(server));

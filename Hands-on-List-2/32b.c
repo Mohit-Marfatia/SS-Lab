@@ -26,9 +26,9 @@ int main() {
     key = ftok(".", 'n'); 
     shmid = shmget(key, 1024, IPC_CREAT | 0666);
 
-    semid = semget(key+1, 1, 0644 | IPC_CREAT);  // Create semaphore
+    semid = semget(key+1, 1, 0644 | IPC_CREAT);
     arg.val = 1;
-    semctl(semid, 0, SETVAL, arg);  // Initialize semaphore to 1
+    semctl(semid, 0, SETVAL, arg); 
 
     struct sembuf sb;
     sb.sem_num = 0;
@@ -36,7 +36,7 @@ int main() {
     sb.sem_flg = 0;
 
     printf("Waiting for semaphore\n");
-    semop(semid, &sb, 1);  // Wait (decrement)
+    semop(semid, &sb, 1); 
 
     // In critical section
     printf("In critical section:\n");
@@ -48,8 +48,8 @@ int main() {
 
     getchar();
     getchar();
-    sb.sem_op = 1;  // Signal (increment)
-    semop(semid, &sb, 1);  // Release the semaphore
+    sb.sem_op = 1;  
+    semop(semid, &sb, 1); 
 
     printf("Exiting critical section\n");
 

@@ -23,7 +23,7 @@ int main() {
 
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(5308);
+    server.sin_port = htons(5309);
 
     connect(sd, (void *)(&server), sizeof(server));
     write(sd, "hello server!\n", 14);

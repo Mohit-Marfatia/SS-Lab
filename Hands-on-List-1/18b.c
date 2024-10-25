@@ -60,7 +60,7 @@ int main(){
         int trainNo;
         printf("Enter train no(1,2,3):\n");
         scanf("%d", &trainNo);
-        int choice;
+        // int choice;
         struct flock lock;
         lock.l_type = F_WRLCK;
         lock.l_whence = SEEK_SET;

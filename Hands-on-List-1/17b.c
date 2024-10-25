@@ -14,6 +14,7 @@ Date: 30th Aug, 2024.
 
 #include<fcntl.h>
 #include<stdio.h>
+#include<unistd.h>
 #include "definition.h"
 
 int main(){
@@ -38,7 +39,7 @@ int main(){
 	printf("Write lock implemented, press enter to book ticket");
 	getchar();
 
-	lseek(fd, -1 * sizeof(db), SEEK_SET);
+	lseek(fd, 0, SEEK_SET);
 	read(fd, &db, sizeof(db));
 	printf("previously booked ticket num is %d\n Now incrementing...", db.ticket_num);
 

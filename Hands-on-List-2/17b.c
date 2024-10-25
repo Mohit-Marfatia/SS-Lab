@@ -29,20 +29,18 @@ int main() {
     }
 
     if (pid == 0) {
-        close(pipefds[1]); // Close the write end of the pipe
-        close(0); // Close the stdin
-
-        // Duplicate the pipe's read end to stdin using dup2()
+        close(pipefds[1]);
+        close(0);
+       
         dup2(pipefds[0], 0);
 
         execlp("wc", "wc", NULL);
         perror("execlp failed");
         exit(1);
     } else {
-        close(pipefds[0]); // Close the read end of the pipe
-        close(1); // Close the stdout
+        close(pipefds[0]);
+        close(1);
 
-        // Duplicate the pipe's write end to stdout using dup2()
         dup2(pipefds[1], 1); 
 
         execlp("ls", "ls", "-l", NULL);

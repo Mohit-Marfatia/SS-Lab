@@ -35,7 +35,7 @@ int main() {
         exit(1);
     }
 
-    if (pid1 != 0) {
+    if (pid1 > 0) {
         dup2(pipe_ls[1], 1);
 
         close(pipe_ls[0]);
@@ -51,7 +51,7 @@ int main() {
              perror("Fork failed");
             exit(1);
         }
-        if (pid2 != 0) {
+        if (pid2 > 0) {
             dup2(pipe_ls[0], 0);
             dup2(pipe_grep[1], 1);
             

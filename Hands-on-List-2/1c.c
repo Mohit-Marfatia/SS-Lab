@@ -3,7 +3,7 @@
 Name : 1a.c
 Author : Mohit Marfatia
 Description : Write a separate program (for each time domain) to set a interval timer in 10sec and 10 micro second
-b. ITIMER_VIRTUAL
+c. ITIMER_PROF
 Date: 12th Sept, 2024.
 ============================================================================
 */
@@ -13,7 +13,7 @@ Date: 12th Sept, 2024.
 #include<signal.h>
 
 void timerHandler(){
-    printf("Timer has expired.\n");
+    printf("Profiling timer expired.\n");
 }
 
 int main(void) {

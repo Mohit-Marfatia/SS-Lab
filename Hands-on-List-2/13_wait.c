@@ -16,8 +16,8 @@ Date: 18th Sept, 2024.
 #include <unistd.h>
 
 void signal_handler(int signal) {
-    if (signal == SIGUSR1) {
-        printf("Caught SIGUSR1 signal\n");
+    if (signal == SIGCONT) {
+        printf("Caught SIGCONT signal\n");
     } else if (signal == SIGSTOP) {
         printf("Attempt to catch SIGSTOP (this won't work)\n");
     }

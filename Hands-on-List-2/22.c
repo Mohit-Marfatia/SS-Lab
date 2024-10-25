@@ -32,7 +32,7 @@ int main() {
         char buffer[100];
         ssize_t bytesRead = read(fd, buffer, sizeof(buffer));
         if (bytesRead > 0) {
-            buffer[bytesRead] = '\0';  // Null-terminate the string
+            buffer[bytesRead] = '\0';
             printf("Received message: %s\n", buffer);
         } else {
             printf("Error reading data from FIFO.\n");

@@ -12,7 +12,7 @@ Date: 21st Aug, 2024.
 #include<stdlib.h>
 
 int main(){
-	int fd = open("temp_dup.txt", O_RDWR | O_APPEND, 0644);
+	int fd = open("temp_dup.txt", O_RDONLY | O_APPEND, 0644);
 	int flags = fcntl(fd, F_GETFL);
 
 	int accessMode = flags & O_ACCMODE;

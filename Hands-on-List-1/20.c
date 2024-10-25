@@ -10,16 +10,15 @@ Date: 30th Aug, 2024.
 
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <sys/time.h>
-#include <errno.h>
+#include <sys/resource.h>
 
 int main(void){
-    	printf("Program 20..\n");
     	int x;
+		int pid = getpid();
 
-    	x = nice(0);
+    	x = getpriority(PRIO_PROCESS, pid);
     	if (x == -1){
         	perror("Error setting priority: ");
     	}
@@ -34,14 +33,12 @@ int main(void){
     	}
     	else{
         	printf("Current priority of the process is %d..\n", y);
-	}
-
+		}
     	return 0;
 }
 
 /*
 Output:
-Program 20..
 Current priority of the process is 0..
 Current priority of the process is 5..
 */

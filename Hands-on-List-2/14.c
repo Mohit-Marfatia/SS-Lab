@@ -33,21 +33,21 @@ int main() {
     }
 
     if (pid > 0) {
-        close(pipefds[0]); // Close the read end 
+        close(pipefds[0]);
 
         printf("Enter message:\n");
         scanf("%[^\n]s", write_msg);
         printf("Parent: Writing to the pipe: \"%s\"\n", write_msg);
         write(pipefds[1], write_msg, strlen(write_msg) + 1);
 
-        close(pipefds[1]); // Close the write end
+        close(pipefds[1]);
     } else {
-        close(pipefds[1]); // Close the write end
+        close(pipefds[1]);
 
         read(pipefds[0], read_msg, sizeof(read_msg));
         printf("Child: Read from the pipe: \"%s\"\n", read_msg);
 
-        close(pipefds[0]); // Close the read end
+        close(pipefds[0]); 
     }
 
     return 0;

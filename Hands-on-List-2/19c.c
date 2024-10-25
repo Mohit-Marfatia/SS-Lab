@@ -1,4 +1,16 @@
 /*
+============================================================================
+
+Name : 19b.c
+Author: Mohit Marfatia
+Problem: Create a FIFO file by
+c. use strace command to find out, which command (mknod or mkfifo) is better.
+Date: 18th Sept, 2024.
+============================================================================
+*/
+
+
+/*
 Output:
 
 By analyzing the output, we see that mkfifo uses the mknod system call internally to create the FIFO. 

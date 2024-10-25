@@ -19,7 +19,7 @@ int main() {
     if (pid < 0) {
         perror("Fork failed");
     } else if (pid == 0) {
-        sleep(5);
+        sleep(20);
         printf("Child process PID: %d, PPID: %d is now orphaned.\n", getpid(), getppid());
     } else {
         // Parent process

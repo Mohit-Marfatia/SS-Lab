@@ -25,7 +25,9 @@ int main() {
         printf("Parent process PID: %d created a child process PID: %d.\n", getpid(), pid);
         // int status;
         // wait(&status);
-        sleep(10);
+        // while(1);
+        sleep(20);
+        wait(NULL);
         printf("Parent process PID: %d is exiting...\n", getpid());
     }
 

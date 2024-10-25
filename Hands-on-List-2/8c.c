@@ -15,7 +15,7 @@ Date: 17th Sept, 2024.
 #include <unistd.h>
 #include <fenv.h>
 
-void sigfpe_handler(int signo) {
+void sigfpe_handler() {
 
         printf("Caught SIGFPE (Floating point exception)\n");
         exit(EXIT_FAILURE);
